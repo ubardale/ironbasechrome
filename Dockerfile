@@ -20,5 +20,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && ln -s /usr/bin/python3 /usr/bin/python \
     && ln -s /usr/bin/pip3 /usr/bin/pip
-    
+
 WORKDIR /app
+
+ADD ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+    
